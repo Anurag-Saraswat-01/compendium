@@ -1,22 +1,13 @@
 <template>
-  <h1>Compendium</h1>
-  <ul>
-    <li v-for="category in categories">
-      <NuxtLink :to="`/category/${category.toLowerCase()}`">{{
-        category
-      }}</NuxtLink>
-    </li>
-  </ul>
+  <h1>Home</h1>
+  <div>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione nihil,
+    voluptate eius perferendis quo excepturi! Numquam, quidem. Magni vel quas
+    possimus, optio, repudiandae laboriosam alias debitis quisquam illo ratione
+    ab.
+  </div>
 </template>
 
-<script setup>
-const categories = ref([
-  "Creatures",
-  "Equipment",
-  "Materials",
-  "Monsters",
-  "Treasure",
-]);
-</script>
+<script setup></script>
 
 <style scoped lang="scss"></style>

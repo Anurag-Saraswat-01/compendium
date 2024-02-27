@@ -1,12 +1,8 @@
 <template>
-  <h1>Category: {{ category }}</h1>
-  <ul>
-    <li v-for="entry in entries">
-      <NuxtLink :to="entryLink(entry)">
-        {{ entry.name }}
-      </NuxtLink>
-    </li>
-  </ul>
+  <h1 class="page-title">Category: {{ category }}</h1>
+  <div class="card-grid">
+    <Card v-for="entry in entries" :category="category" :entry="entry" />
+  </div>
 </template>
 
 <script setup>
@@ -18,10 +14,6 @@ const entries = ref([]);
 const url = computed(() => {
   return `https://botw-compendium.herokuapp.com/api/v3/compendium/category/${category.value}`;
 });
-
-const entryLink = (entry) => {
-  return `/${category.value.toLowerCase()}/${entry.name.replaceAll(" ", "_")}`;
-};
 
 onMounted(() =>
   axios
@@ -36,4 +28,14 @@ onMounted(() =>
 );
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.page-title {
+  margin-bottom: 1rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 1rem;
+}
+</style>
